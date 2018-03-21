@@ -1235,7 +1235,7 @@ class Point(_Shape, _ShapeWithOutline):
     It is drawn as a small circle (dot).
 
     To construct a Point, use:
-    -   rg.Point(x, y)
+    -   rg.(x, y)
     where  x  and  y   are the Point's coordinates.
 
     For example:

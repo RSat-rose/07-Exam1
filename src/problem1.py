@@ -2,8 +2,8 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  March 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Rion Sato.  March 2018.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the doc-string for the   product_of_digits   function below.
+# DONE: 2.  READ the doc-string for the   product_of_digits   function below.
 #           Ask your instructor for help if you do not understand it.
 #
 #   Once you are confident that you understand the doc-string
@@ -196,7 +196,7 @@ def problem1a(a, b, threshold):
               returns 109 + 110 + 111 + 112 + 120 + 121 + 130,  which is 813
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # IMPORTANT NOTE
@@ -205,11 +205,21 @@ def problem1a(a, b, threshold):
     #     1-argument version of the RANGE statement to solve this problem.
     # -------------------------------------------------------------------------
 
+    if(a < 0 or b < 0 or a > b):
+        return 'incorrect arguments'
+    sum = 0
+    tmp_pod = 0
+    for i in range(a, b+1):
+        tmp_pod = product_of_digits(i)
+        if(tmp_pod < threshold):
+            sum += i
+    return sum
+
 
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement at least 4 tests of the problem1b function.
+    # DONE: 4. Implement at least 4 tests of the problem1b function.
     #   Note that you CANNOT use  problem1b(1)  or  problem1b(2)  as tests, per
     #   the specification below that says that the argument must be at least 3.
     # -------------------------------------------------------------------------
@@ -217,6 +227,38 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+
+    # Test 1:
+    expected = 682
+    answer = problem1b(8)
+    print('[Test 1]')
+    print(' Expected:', expected)
+    print(' Actual:  ', answer)
+    print()
+
+    # Test 1:
+    expected = 64
+    answer = problem1b(4)
+    print('[Test 2]')
+    print(' Expected:', expected)
+    print(' Actual:  ', answer)
+    print()
+
+    # Test 3:
+    expected = 143
+    answer = problem1b(5)
+    print('[Test 3]')
+    print(' Expected:', expected)
+    print(' Actual:  ', answer)
+    print()
+
+    # Test 4:
+    expected = 'somthing error'
+    answer = problem1b(-2)
+    print('[Test 4]')
+    print(' Expected:', expected)
+    print(' Actual:  ', answer)
+    print()
 
 
 ###############################################################################
@@ -239,9 +281,18 @@ def problem1b(r):
            and the sum of the above numbers is 682
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          See the IMPORTANT NOTE just before the DEF above.
     # -------------------------------------------------------------------------
+    if(r < 3):
+        return 'incorrect arguments'
+    sum = 0
+    tmp_pod = 0
+    for i in range(r, r**2 +1):
+        tmp_pod = product_of_digits(i)
+        if (tmp_pod <= r):
+            sum += i
+    return sum
 
 
 # -----------------------------------------------------------------------------
